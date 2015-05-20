@@ -22,10 +22,11 @@ public class KeyMap extends Activity {
     @Override
     public boolean onKeyDown(int keycode, KeyEvent event)
     {
+
         String keyPressInfo =
-                "KeyCode: " + keycode +
-                " / " + KeyEvent.keyCodeToString(keycode) +
-                "\n deviceID: " + event.getDeviceId();
+                "\n   Key Code: " + keycode + " / " + KeyEvent.keyCodeToString(keycode) +
+                "\nScan Code: " + Integer.toString(event.getScanCode()) +
+                "\n     deviceID: " + event.getDeviceId();
 
         text.setText(keyPressInfo);
 
