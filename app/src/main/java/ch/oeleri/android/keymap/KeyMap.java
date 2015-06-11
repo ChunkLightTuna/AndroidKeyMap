@@ -22,11 +22,14 @@ public class KeyMap extends Activity {
     @Override
     public boolean onKeyDown(int keycode, KeyEvent event)
     {
+        String keyCodeToString = KeyEvent.keyCodeToString(keycode);
+
+        keyCodeToString = keyCodeToString.substring(keyCodeToString.indexOf("_")+1);
 
         String keyPressInfo =
-                "\n   Key Code: " + keycode + " / " + KeyEvent.keyCodeToString(keycode) +
+                "\n   Key Code: " + keyCodeToString +
                 "\nScan Code: " + Integer.toString(event.getScanCode()) +
-                "\n     deviceID: " + event.getDeviceId();
+              "\n\n    deviceID: " + event.getDeviceId(); //use lsusb to get product/vendorid's
 
         text.setText(keyPressInfo);
 
